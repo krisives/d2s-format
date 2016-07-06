@@ -1,6 +1,14 @@
 
 # Diablo II Save File Format
 
+Diablo II stores your game character on disk as a .d2s file. This
+is a binary file format that encodes all of the stats, items, name,
+and other pieces of data.
+
+Integers are stored in [little endian](https://en.wikipedia.org/wiki/Endianness)
+byte order, which is the native byte ordering on a x86 architecture which Diablo
+is based on.
+
 ## Header
 
 Each .d2s file starts with a 765 byte header, after which data
@@ -13,7 +21,7 @@ Byte | Length | Desc
 8    | 4      | File size
 12   | 4      | [Checksum](#checksum)
 16   | 4      | ?
-20   | 16     | Character Name (ASCII padded with 0 bytes)
+20   | 16     | [Character Name](#name)
 36   | 1      | [Character Status](#character-status)
 37   | 1      | [Character Progression](#Character-progression)
 38   | 2      | ?
@@ -61,6 +69,17 @@ to be zero and iterate through all the bytes in the data calculating
 a 32-bit checksum:
 
     sum = (sum << 1) + data[i];
+
+### Name
+
+Character names are store as an array of 16 characters which contain
+a null terminated string padded with `0x00` for the remaining bytes.
+Characters are stored as 8-bit ASCII, but remember that valid must
+follow these rules:
+ * Must be 2-15 in length
+ * Must begin with a letter
+ * May contain up to one hyphen (`-`) or underscore (`_`)
+ * May contain letters
 
 ### Character Status
 
