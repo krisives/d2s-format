@@ -21,7 +21,7 @@ Byte | Length | Desc
 8    | 4      | File size
 12   | 4      | [Checksum](#checksum)
 16   | 4      | ?
-20   | 16     | [Character Name](#name)
+20   | 16     | [Character Name](#character-name)
 36   | 1      | [Character Status](#character-status)
 37   | 1      | [Character Progression](#Character-progression)
 38   | 2      | ?
@@ -70,7 +70,7 @@ a 32-bit checksum:
 
     sum = (sum << 1) + data[i];
 
-### Name
+### Character Name
 
 Character names are store as an array of 16 characters which contain
 a null terminated string padded with `0x00` for the remaining bytes.
