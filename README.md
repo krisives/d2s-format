@@ -236,9 +236,14 @@ pairs where the key is a 9-bit number and the value depends on the key.
 The list ends when key `511` (`0x1ff`) is found which is all 9-bits
 being set.
 
- matching the `code` from the
-`ItemStatCost.txt` file. The value is N bits described by the `Save Bits`
-and `Param Bits` fields of the text file.
+Using the file `ItemStatCost.txt` as a tab-delimited CSV file you can
+extract the `ID` column which maps to the 9-bit keys. The columns
+`Save Bits` and `Param Bits` describe how large the mod is.
+
+The only exception is min-max style modifiers which use the next row
+in the CSV to store the "max" portion of the mod. The bit sizes of
+these two can be different and you should sum them to get the total
+size.
 
 #### Runeword
 
