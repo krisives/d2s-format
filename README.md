@@ -204,7 +204,8 @@ Bit | Size | Desc
 ### Custom Graphics
 
 Custom graphics are denoted by a single bit, which if
-set provides a 3-bit number for alternate graphics.
+set means a 3-bit number for the graphic index follows. If the
+bit is not set the 3-bits are not present.
 
 Bit | Size | Desc
 ----|------|------
