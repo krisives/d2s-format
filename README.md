@@ -6,8 +6,8 @@ is a binary file format that encodes all of the stats, items, name,
 and other pieces of data.
 
 Integers are stored in [little endian](https://en.wikipedia.org/wiki/Endianness)
-byte order, which is the native byte ordering on a x86 architecture which
-Diablo II is based on.
+byte order, which is the native byte ordering on a x86 architecture Diablo II
+is based on.
 
 ## Header
 
