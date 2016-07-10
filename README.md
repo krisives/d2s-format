@@ -20,7 +20,7 @@ Byte | Length | Desc
 4    | 4      | [Version ID](#versions)
 8    | 4      | File size
 12   | 4      | [Checksum](#checksum)
-16   | 4      | ?
+16   | 4      | [Active Weapon](#active-weapon)
 20   | 16     | [Character Name](#character-name)
 36   | 1      | [Character Status](#character-status)
 37   | 1      | [Character Progression](#Character-progression)
@@ -69,6 +69,10 @@ to be zero and iterate through all the bytes in the data calculating
 a 32-bit checksum:
 
     sum = (sum << 1) + data[i];
+
+### Active Weapon
+
+TODO
 
 ### Character Name
 
