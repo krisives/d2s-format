@@ -60,7 +60,7 @@ File version. The following values are known:
 * `87` is 1.07 or Expansion Set v1.08
 * `89` is standard game v1.08
 * `92` is v1.09 (both the standard game and the Expansion Set.)
-* `96` is v1.14
+* `96` is v1.10+
 
 ### Checksum
 
@@ -69,6 +69,8 @@ to be zero and iterate through all the bytes in the data calculating
 a 32-bit checksum:
 
     sum = (sum << 1) + data[i];
+
+If the checksum is invalid, Diablo II will not open the save file.
 
 ### Active Weapon
 
@@ -121,10 +123,12 @@ ID | Class
 TODO
 
 ### Character Menu Appearance
-TODO
+32 byte structure which defines how the character looks in the menu
+Does not change in-game look
+
 
 ### Difficulty
-3 Bytes of data that indicates which of the three difficulties the character is playing.
+3 bytes of data that indicates which of the three difficulties the character has unlocked.
 Each byte is representitive of one of the difficulties. In this order:
 Normal, Nightmare, and Hell.
 
@@ -142,7 +146,23 @@ TODO
 
 ### Waypoint
 
-TODO
+Waypoint data starts with 2 chars "WS" and
+6 unknown bytes, always = {0x01, 0x00, 0x00, 0x00, 0x50, 0x00}
+
+Three structures are in place for each difficulty,
+at offsets 641, 665 and 689.
+
+The contents of this structure are as follows
+
+byte | bytesize | contents
+-----|----------|---------
+  0  | 2 bytes  | {0x02, 0x01} Unknown purpose
+  2  | 5 bytes  | Waypoint bitfield in order of least significant bit
+  7  | 17 bytes | unknown
+
+In the waypoint bitfield, a bit value of 1 means that the waypoint is enabled
+It is in an order from lowest to highest, so 0 is Rogue encampment (ACT I) etc.
+The first waypoint in each difficulty is always activated.
 
 ### NPC
 
