@@ -124,8 +124,13 @@ TODO
 TODO
 
 ### Difficulty
+3 Bytes of data that indicates which of the three difficulties the character is playing.
+Each byte is representitive of one of the difficulties. In this order:
+Normal, Nightmare, and Hell.
 
-TODO
+ 7      | 6 | 5 | 4 | 3 | 2, 1, 0
+--------|---|---|---|---|-----------
+Active? |unk|unk|unk|unk|Which act (0-4)?
 
 ### Map
 
