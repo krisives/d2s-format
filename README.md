@@ -36,7 +36,7 @@ Byte | Length | Desc
 124  | 4      | Right Mouse
 128  | 4      | Left Mouse (weapon switch)
 132  | 4      | Right Mouse (weapon switch)
-136  | 32     | ?
+136  | 32     | [Character Menu Appearance](#character-menu-appearance)
 168  | 3      | [Difficulty](#difficulty)
 171  | 4      | [Map](#map)
 175  | 2      | ?
@@ -118,6 +118,9 @@ ID | Class
 
 ### Hotkeys
 
+TODO
+
+### Character Menu Appearance
 TODO
 
 ### Difficulty
