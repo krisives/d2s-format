@@ -131,10 +131,11 @@ Does not change in-game look
 3 bytes of data that indicates which of the three difficulties the character has unlocked.
 Each byte is representitive of one of the difficulties. In this order:
 Normal, Nightmare, and Hell.
+Each byte is a bitfield structured like this:
 
  7      | 6 | 5 | 4 | 3 | 2, 1, 0
 --------|---|---|---|---|-----------
-Active? |unk|unk|unk|unk|Which act (0-4)?
+Active? |Unknown|Unknown|Unknown|Unknown|Which act (0-4)?
 
 ### Map
 
