@@ -27,7 +27,7 @@ Byte | Length | Desc
 38   | 2      | ?
 40   | 1      | [Character Class](#character-class)
 41   | 2      | ?
-43   | 1      | Level
+43   | 1      | [Level](#level)
 44   | 4      | ?
 48   | 4      | Time
 52   | 4      | ?
@@ -117,6 +117,11 @@ ID | Class
 4  | Barbarian
 5  | Druid
 6  | Assassin
+
+### Level
+
+This level value is visible only in character select screen
+and must be the same as this in [Stats](#stats) section.
 
 ### Hotkeys
 
