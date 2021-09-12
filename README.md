@@ -68,7 +68,109 @@ To calculate the checksum set the value of it in the .d2s data
 to be zero and iterate through all the bytes in the data calculating
 a 32-bit checksum:
 
+<details><summary>code in C</summary>
+
+```C
     sum = (sum << 1) + data[i];
+```
+
+</details>
+
+<details><summary>code in JavaScript</summary>
+
+source: https://github.com/krisives/d2s-format/issues/5
+
+```js
+const fs = require("fs");
+const path = require("path");
+const file = path.join(process.cwd(), "path_to_save.d2s");
+
+function calculateSum(data) {
+  let sum = 0;
+  for (let i = 0; i < data.length; i++) {
+    let ch = data[i];
+    if (i >= 12 && i < 16) {
+      ch = 0;
+    }
+    ch += sum < 0;
+    sum = (sum << 1) + ch;
+  }
+
+  return sum;
+}
+
+function littleToBigEndian(number) {
+  return new DataView(
+    Int32Array.of(
+      new DataView(Int32Array.of(number).buffer).getUint32(0, true)
+    ).buffer
+  );
+}
+
+function ashex(buffer) {
+  return buffer.getUint32(0, false).toString(16);
+}
+
+async function readSafeFile() {
+  return await new Promise((resolve, reject) => {
+    fs.readFile(file, (err, data) => {
+      if (err) return reject(err);
+      return resolve(data);
+    });
+  });
+}
+
+async function writeCheckSumToSafeFile(data) {
+  return await new Promise((resolve, reject) => {
+    fs.writeFile(file, data, err => {
+      if (err) reject(err);
+      resolve();
+    });
+  });
+}
+
+readSafeFile().then(data => {
+  const sum = calculateSum(data);
+  const bufferSum = littleToBigEndian(sum);
+  const hex = ashex(bufferSum);
+  const newData = data;
+  for (let i = 0; i < 4; i++) {
+    newData[12 + i] = bufferSum.getInt8(i);
+  }
+  writeCheckSumToSafeFile(newData).then(() => console.log(hex));
+});
+```
+
+</details>
+
+<details><summary>code in <a href="https://golang.org">golang</a></summary>
+
+source: https://github.com/gucio321/d2d2s/blob/66f91e2af7b3949ca7f279aae397bd8904519e2d/pkg/d2s/d2s.go#L397
+
+```golang
+// CalculateChecksum calculates a checksum and saves in a byte slice 
+func CalculateChecksum(data *[]byte) {
+        var sum uint32
+        for i := range *data {
+                sum = ((sum << 1) % math.MaxUint32) | (sum >> (int32Size*byteLen - 1))
+
+                sum += uint32((*data)[i])
+        }
+
+        sumBytes := make([]byte, int32Size)
+        binary.LittleEndian.PutUint32(sumBytes, sum)
+
+        const (
+                int32Size = 4
+                checksumPosition = 12
+        )
+        for i := 0; i < int32Size; i++ {
+                (*data)[checksumPosition+i] = sumBytes[i]
+        }
+}
+```
+
+</details>
 
 If the checksum is invalid, Diablo II will not open the save file.
 
