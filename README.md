@@ -14,43 +14,43 @@ is based on.
 Each .d2s file starts with a 765 byte header, after which data
 is of variable length.
 
-Byte | Length | Desc
------|--------|------------
-0    | 4      | Signature (0xaa55aa55)
-4    | 4      | [Version ID](#versions)
-8    | 4      | File size
-12   | 4      | [Checksum](#checksum)
-16   | 4      | [Active Weapon](#active-weapon)
-20   | 16     | [Character Name](#character-name)
-36   | 1      | [Character Status](#character-status)
-37   | 1      | [Character Progression](#Character-progression)
-38   | 2      | ?
-40   | 1      | [Character Class](#character-class)
-41   | 2      | ?
-43   | 1      | [Level](#level)
-44   | 4      | ?
-48   | 4      | Time
-52   | 4      | ?
-56   | 64     | [Hotkeys](#hotkeys)
-120  | 4      | Left Mouse
-124  | 4      | Right Mouse
-128  | 4      | Left Mouse (weapon switch)
-132  | 4      | Right Mouse (weapon switch)
-136  | 32     | [Character Menu Appearance](#character-menu-appearance)
-168  | 3      | [Difficulty](#difficulty)
-171  | 4      | [Map](#map)
-175  | 2      | ?
-177  | 2      | Merc dead?
-179  | 4      | Merc seed?
-183  | 2      | Merc Name ID
-185  | 2      | Merc Type
-187  | 4      | Merc Experience
-191  | 144    | ?
-335  | 298    | [Quest](#quest)
-633  | 81     | [Waypoint](#waypoint)
-714  | 51     | [NPC](#npc)
-765  |        | [Stats](#stats)
-     |        | [Items](#items)
+|Byte | Length | Desc
+|-----|--------|------------
+|0    | 4      | Signature (0xaa55aa55)
+|4    | 4      | [Version ID](#versions)
+|8    | 4      | File size
+|12   | 4      | [Checksum](#checksum)
+|16   | 4      | [Active Weapon](#active-weapon)
+|20   | 16     | [Character Name](#character-name)
+|36   | 1      | [Character Status](#character-status)
+|37   | 1      | [Character Progression](#Character-progression)
+|38   | 2      | ?
+|40   | 1      | [Character Class](#character-class)
+|41   | 2      | ?
+|43   | 1      | [Level](#level)
+|44   | 4      | ?
+|48   | 4      | Time
+|52   | 4      | ?
+|56   | 64     | [Hotkeys](#hotkeys)
+|120  | 4      | Left Mouse
+|124  | 4      | Right Mouse
+|128  | 4      | Left Mouse (weapon switch)
+|132  | 4      | Right Mouse (weapon switch)
+|136  | 32     | [Character Menu Appearance](#character-menu-appearance)
+|168  | 3      | [Difficulty](#difficulty)
+|171  | 4      | [Map](#map)
+|175  | 2      | ?
+|177  | 2      | Merc dead?
+|179  | 4      | Merc seed?
+|183  | 2      | Merc Name ID
+|185  | 2      | Merc Type
+|187  | 4      | Merc Experience
+|191  | 144    | ?
+|335  | 298    | [Quest](#quest)
+|633  | 81     | [Waypoint](#waypoint)
+|714  | 51     | [NPC](#npc)
+|765  |        | [Stats](#stats)
+|     |        | [Items](#items)
 
 ### Versions
 
@@ -231,13 +231,13 @@ item information will exist and the item is finished.
 Items with extended information store bits based on information in the item header. For example, an item marked as `Socketed` will store an
 extra 3-bit integer encoding how many sockets the item has.
 
-Bit | Size | Desc
+|Bit | Size | Desc
 ----|------|-------
-108 |      | [Sockets](#sockets)
-    |      | [Custom Graphics](#custom-graphics)
-    |      | [Class Specific](#class-specific)
-    |      | [Quality](#quality)
-    |      | [Mods](#mods)
+|108 |      | [Sockets](#sockets)
+|    |      | [Custom Graphics](#custom-graphics)
+|    |      | [Class Specific](#class-specific)
+|    |      | [Quality](#quality)
+|    |      | [Mods](#mods)
 
 ### Custom Graphics
 
