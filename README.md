@@ -231,13 +231,13 @@ item information will exist and the item is finished.
 Items with extended information store bits based on information in the item header. For example, an item marked as `Socketed` will store an
 extra 3-bit integer encoding how many sockets the item has.
 
-Bit | Size | Desc
+|Bit | Size | Desc
 ----|------|-------
-108 |      | [Sockets](#sockets)
-    |      | [Custom Graphics](#custom-graphics)
-    |      | [Class Specific](#class-specific)
-    |      | [Quality](#quality)
-    |      | [Mods](#mods)
+|108 |      | [Sockets](#sockets)
+|    |      | [Custom Graphics](#custom-graphics)
+|    |      | [Class Specific](#class-specific)
+|    |      | [Quality](#quality)
+|    |      | [Mods](#mods)
 
 ### Custom Graphics
 
