@@ -14,43 +14,43 @@ is based on.
 Each .d2s file starts with a 765 byte header, after which data
 is of variable length.
 
-|Byte | Length | Desc
-|-----|--------|------------
-|0    | 4      | Signature (0xaa55aa55)
-|4    | 4      | [Version ID](#versions)
-|8    | 4      | File size
-|12   | 4      | [Checksum](#checksum)
-|16   | 4      | [Active Weapon](#active-weapon)
-|20   | 16     | [Character Name](#character-name)
-|36   | 1      | [Character Status](#character-status)
-|37   | 1      | [Character Progression](#Character-progression)
-|38   | 2      | ?
-|40   | 1      | [Character Class](#character-class)
-|41   | 2      | ?
-|43   | 1      | [Level](#level)
-|44   | 4      | ?
-|48   | 4      | Time
-|52   | 4      | ?
-|56   | 64     | [Hotkeys](#hotkeys)
-|120  | 4      | Left Mouse
-|124  | 4      | Right Mouse
-|128  | 4      | Left Mouse (weapon switch)
-|132  | 4      | Right Mouse (weapon switch)
-|136  | 32     | [Character Menu Appearance](#character-menu-appearance)
-|168  | 3      | [Difficulty](#difficulty)
-|171  | 4      | [Map](#map)
-|175  | 2      | ?
-|177  | 2      | Merc dead?
-|179  | 4      | Merc seed?
-|183  | 2      | Merc Name ID
-|185  | 2      | Merc Type
-|187  | 4      | Merc Experience
-|191  | 144    | ?
-|335  | 298    | [Quest](#quest)
-|633  | 81     | [Waypoint](#waypoint)
-|714  | 51     | [NPC](#npc)
-|765  |        | [Stats](#stats)
-|     |        | [Items](#items)
+|Hex  | Byte | Length | Desc
+|-----|------|--------|------------
+|0x00 | 0    | 4      | Signature (0xaa55aa55)
+|0x04 | 4    | 4      | [Version ID](#versions)
+|0x08 | 8    | 4      | File size
+|0x0C | 12   | 4      | [Checksum](#checksum)
+|0x10 | 16   | 4      | [Active Weapon](#active-weapon)
+|0x14 | 20   | 16     | [Character Name](#character-name)
+|0x24 | 36   | 1      | [Character Status](#character-status)
+|0x25 | 37   | 1      | [Character Progression](#Character-progression)
+|0x26 | 38   | 2      | ?
+|0x28 | 40   | 1      | [Character Class](#character-class)
+|0x29 | 41   | 2      | ?
+|0x2B | 43   | 1      | [Level](#level)
+|0x2C | 44   | 4      | ?
+|0x30 | 48   | 4      | Time
+|0x34 | 52   | 4      | ?
+|0x38 | 56   | 64     | [Hotkeys](#hotkeys)
+|0x78 | 120  | 4      | Left Mouse
+|0x7C | 124  | 4      | Right Mouse
+|0x80 | 128  | 4      | Left Mouse (weapon switch)
+|0x84 | 132  | 4      | Right Mouse (weapon switch)
+|0x88 | 136  | 32     | [Character Menu Appearance](#character-menu-appearance)
+|0xA8 | 168  | 3      | [Difficulty](#difficulty)
+|0xAB | 171  | 4      | [Map](#map)
+|0xAF | 175  | 2      | ?
+|0xB1 | 177  | 2      | Merc dead?
+|0xB3 | 179  | 4      | Merc seed?
+|0xB7 | 183  | 2      | Merc Name ID
+|0xB9 | 185  | 2      | Merc Type
+|0xBB | 187  | 4      | Merc Experience
+|0xBF | 191  | 144    | ?
+|0x14F| 335  | 298    | [Quest](#quest)
+|0x279| 633  | 81     | [Waypoint](#waypoint)
+|0x2CA| 714  | 51     | [NPC](#npc)
+|0x2FD| 765  |        | [Stats](#stats)
+|     |      |        | [Items](#items)
 
 ### Versions
 
